@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	
+	<!-- title -->
+	
+	<title>
+	
+		Linux常用命令 | 
+	 
+	百舸争流
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="编程，日记" />
+	 
+		<meta name="description" content="我思故我在，记录随想" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/sun.ico">
+	
+  
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/darcula.min.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+	
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+	
+		
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+
+		
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+
+	
+	
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+	<header id="header">
+    <a id="title" href="/" class="logo">百舸争流</a>
+
+	<ul id="menu">
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
+		</li>
+		
+		<li class="menu-item">
+			<a href="https://leetcode-cn.com/u/levi/" class="menu-item-link" target="_blank">
+				<img src="leetcode.svg" alt="LEETCODE" height=15px width="15px"/>
+			</a>
+		</li>
+		<li class="menu-item">
+			<a href="https://github.com/tlifeng" class="menu-item-link" target="_blank">
+				<i class="fa fa-github fa-2x"></i>
+			</a>
+		</li>
+	</ul>
+</header>
+
+	
+<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="text" placeholder="search...">
+		<div id="tree">
+			
+
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										05 DevOps
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										Linux
+									</a>
+									
+							<ul>
+								<li class="file active">
+									<a href="/2020/09/25/05%20DevOps/Linux/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+										Linux常用命令
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										06 Node
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/11/11/06%20Node/Nodejs%E6%80%BB%E7%BB%93/">
+										Nodejs总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<!-- 引入正文 -->
+	<div id="content">
+		<h1 id="article-title">
+
+	Linux常用命令
+</h1>
+<div class="article-meta">
+	
+	<span>Levi Tang</span>
+	<span>2020-09-25 16:21:05</span>
+    
+		<div id="article-categories">
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true"></i>
+                        <a href="/categories/DevOps/">DevOps</a>
+						
+							>
+						
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true"></i>
+                        <a href="/categories/DevOps/Linux/">Linux</a>
+						
+                    </span>
+                
+            
+		</div>
+    
+</div>
+
+<div id="article-content">
+	<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B">查看进程</a><ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E5%89%8D%E5%8D%81%E8%BF%9B%E7%A8%8B">查看内存使用前十进程</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8Bcpu%E4%BD%BF%E7%94%A8%E5%89%8D10%E7%9A%84%E8%BF%9B%E7%A8%8B">查看cpu使用前10的进程</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E7%AB%AF%E5%8F%A3">查看网络端口</a><ul>
+<li><a href="#lsof">lsof</a></li>
+<li><a href="#netstat">netstat</a></li>
+</ul>
+</li>
+<li><a href="#vim%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3">vim操作相关</a><ul>
+<li><a href="#%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%9F%A5%E7%9C%8B">移动和查看</a></li>
+<li><a href="#%E7%BC%96%E8%BE%91">编辑</a></li>
+</ul>
+</li>
+<li><a href="#%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3">进程相关</a></li>
+<li><a href="#%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8">光标移动</a></li>
+</ul>
+<h2 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h2><p>ps -ef 和 ps aux</p>
+<p><img src="/2020/09/25/05%20DevOps/Linux/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/ps%E5%91%BD%E4%BB%A4.png" alt="ps命令" loading="lazy"></p>
+<p>格式有所不同</p>
+<pre><code class="c++"># 标准输出
+# ps -ef
+UID     =&gt; 用户ID、但输出的是用户名 
+PID     =&gt; 进程的ID 
+PPID    =&gt; 父进程ID 
+C       =&gt; 进程占用CPU的百分比 
+STIME   =&gt; 进程启动到现在的时间 
+TTY     =&gt; 该进程在那个终端上运行，若与终端无关，则显示? 若为pts/0等，则表示由网络连接主机进程。 
+CMD     =&gt; 命令的名称和参数
+
+# BSD语法
+# ps aux
+USER       =&gt; 用户名 
+%CPU       =&gt; 进程占用的CPU百分比 
+%MEM       =&gt; 占用内存的百分比 
+VSZ        =&gt; 该进程使用的虚拟內存量（KB） 
+RSS        =&gt; 该进程占用的固定內存量（KB）（驻留中页的数量） 
+STAT       =&gt; 进程的状态 
+START      =&gt; 该进程被触发启动时间 
+TIME       =&gt; 该进程实际使用CPU运行的时间</code></pre>
+<p>树形格式查看</p>
+<p><strong>pstree</strong></p>
+<p><strong>ps</strong> <strong>-ejH</strong></p>
+<p><strong>ps</strong> <strong>axjf</strong></p>
+<h3 id="查看内存使用前十进程"><a href="#查看内存使用前十进程" class="headerlink" title="查看内存使用前十进程"></a>查看内存使用前十进程</h3><pre><code class="shell">ps aux|head -1;ps aux|grep -v PID|sort -rn -k +4|head</code></pre>
+<h3 id="查看cpu使用前10的进程"><a href="#查看cpu使用前10的进程" class="headerlink" title="查看cpu使用前10的进程"></a>查看cpu使用前10的进程</h3><pre><code class="shell">ps aux|head -1;ps aux|grep -v PID|sort -rn -k +3|head</code></pre>
+<h2 id="查看网络端口"><a href="#查看网络端口" class="headerlink" title="查看网络端口"></a>查看网络端口</h2><h3 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h3><p>如查看12888端口使用情况</p>
+<p>lsof -i:12888</p>
+<pre><code class="shell">➜  ~ lsof -i:12888
+COMMAND     PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+netease-c  4899 tang  196u  IPv4 275504      0t0  TCP localhost:50918-&gt;localhost:12888 (ESTABLISHED)
+v2ray      5968 tang    9u  IPv4  44658      0t0  TCP localhost:12888 (LISTEN)
+v2ray      5968 tang   11u  IPv4 273198      0t0  TCP localhost:12888-&gt;localhost:50922 (ESTABLISHED)
+v2ray      5968 tang   15u  IPv4 273085      0t0  TCP localhost:12888-&gt;localhost:50918 (ESTABLISHED)
+chrome    25770 tang   26u  IPv4 267027      0t0  TCP localhost:50922-&gt;localhost:12888 (ESTABLISHED)</code></pre>
+<h3 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h3><pre><code class="shell">➜  ~ sudo netstat -tunp | grep 12888
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name 
+tcp        0      0 127.0.0.1:12888         127.0.0.1:50972         TIME_WAIT   -                   
+tcp        0      0 127.0.0.1:12888         127.0.0.1:50968         TIME_WAIT   -                   
+tcp        0      0 127.0.0.1:50978         127.0.0.1:12888         ESTABLISHED 25770/chrome --type 
+tcp        0      0 127.0.0.1:12888         127.0.0.1:50978         ESTABLISHED 5968/v2ray </code></pre>
+<p>-t 查看tcp</p>
+<p>-u 查看udp</p>
+<p>-n 以数字形式显示地址和端口</p>
+<p>-p 查看pid</p>
+<p>-l 查看listen的</p>
+<h2 id="vim操作相关"><a href="#vim操作相关" class="headerlink" title="vim操作相关"></a>vim操作相关</h2><h3 id="移动和查看"><a href="#移动和查看" class="headerlink" title="移动和查看"></a>移动和查看</h3><p>gg 回到回到第一列</p>
+<p>G 跳到最后一行</p>
+<p>20 + Enter 跳到第二十行</p>
+<p>Ctrl + f  相当与pagedown</p>
+<p>Ctrl + b 相当于pageup</p>
+<p>?word 向上查找word字符串</p>
+<h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><p>yy 复制当前所在列</p>
+<p>2yy 向下复制两行</p>
+<p>u 撤销上个操作</p>
+<p>Ctrl + r 反撤销上个操作</p>
+<p>o 在当前下一列输入</p>
+<h2 id="进程相关"><a href="#进程相关" class="headerlink" title="进程相关"></a>进程相关</h2><p>Ctrl + z 挂起相关进程</p>
+<p>jobs 查看挂起的进程</p>
+<p>fg %n 继续打开第n个进程</p>
+<pre><code class="shell">➜  ~ vim ~/.zshrc                                                                                                   
+[1]  + 30917 suspended  vim ~/.zshrc
+
+➜  ~ jobs   
+[1]  + suspended  vim ~/.zshrc
+
+➜  ~ fg %1
+</code></pre>
+<h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><p>ctr l+ 左右键 : 在单词之间跳转</p>
+<p>ctrl + a : 跳到本行的行首</p>
+<p>ctrl + e : 跳到页尾</p>
+<p>Ctrl + u ：删除当前光标前面的文字 （还有剪切功能）</p>
+<p>ctrl + k ：删除当前光标后面的文字(还有剪切功能)</p>
+<p>Ctrl + L：进行清屏操作</p>
+<p>Ctrl + y : 粘贴Ctrl+u或ctrl+k剪切的内容</p>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2020/11/11/06%20Node/Nodejs%E6%80%BB%E7%BB%93/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			av: AV,
+			el: '#vcomments',
+			notify: false,
+			verify: false,
+			path: window.location.pathname,
+			appId: 'fz5jMD8XWbMNUjFVI2spXPLb-gzGzoHsz',
+			appKey: '0ReU6ck9izHByJPT5SipEAKe',
+			placeholder: '请输入评论',
+			avatar: 'retro',
+			recordIP: false
+		})
+	
+	
+</script>
+	</div>
+	<div id="footer">
+	<p>
+	©2019-<span id="footerYear"></span> 
+	<a href="/">Levi Tang</a> 
+	
+	
+	<br>
+	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
+	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
+	</p>
+</div>
+<script type="text/javascript"> 
+	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+</script>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+</body>
+</html>
