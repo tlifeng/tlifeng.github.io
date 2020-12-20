@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		Linux常用命令 | 
+		面试笔记 | 
 	 
 	百舸争流
 	</title>
@@ -177,7 +177,7 @@
 									</a>
 									
 							<ul>
-								<li class="file active">
+								<li class="file">
 									<a href="/2020/09/25/05%20DevOps/Linux/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 										Linux常用命令
 									</a>
@@ -270,7 +270,7 @@
 									</a>
 									
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2020/12/20/10%20%E9%9D%A2%E7%BB%8F/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">
 										面试笔记
 									</a>
@@ -290,135 +290,86 @@
 	<div id="content">
 		<h1 id="article-title">
 
-	Linux常用命令
+	面试笔记
 </h1>
 <div class="article-meta">
 	
 	<span>Levi Tang</span>
-	<span>2020-09-25 16:21:05</span>
+	<span>2020-12-20 13:16:51</span>
     
 		<div id="article-categories">
-            
-                
-                    <span>
-                        <i class="fa fa-folder" aria-hidden="true"></i>
-                        <a href="/categories/DevOps/">DevOps</a>
-						
-							>
-						
-                    </span>
-                
-            
-                
-                    <span>
-                        <i class="fa fa-folder" aria-hidden="true"></i>
-                        <a href="/categories/DevOps/Linux/">Linux</a>
-						
-                    </span>
-                
             
 		</div>
     
 </div>
 
 <div id="article-content">
-	<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B">查看进程</a><ul>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E5%89%8D%E5%8D%81%E8%BF%9B%E7%A8%8B">查看内存使用前十进程</a></li>
-<li><a href="#%E6%9F%A5%E7%9C%8Bcpu%E4%BD%BF%E7%94%A8%E5%89%8D10%E7%9A%84%E8%BF%9B%E7%A8%8B">查看cpu使用前10的进程</a></li>
+	<h1 id="面试笔记"><a href="#面试笔记" class="headerlink" title="面试笔记"></a>面试笔记</h1><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>1.一个汉字是多少个字节？</p>
+<ul>
+<li>一个汉字占2B, 1字节（B）等于8 bit, 所以一个汉字占16个二进制</li>
+</ul>
+<h2 id="k8s"><a href="#k8s" class="headerlink" title="k8s"></a>k8s</h2><h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h4 id="1-ISO-OSI-开放系统互联-七层模型"><a href="#1-ISO-OSI-开放系统互联-七层模型" class="headerlink" title="1. ISO/OSI (开放系统互联) 七层模型"></a>1. ISO/OSI (开放系统互联) 七层模型</h4><ol>
+<li><p><strong>物理层</strong></p>
+</li>
+<li><p><strong>数据链路层</strong>： 在不可靠的物理介质上提供可靠的物理传输（光纤可能会被挖断..）。作用有<strong>物理地址寻址、数据封装成帧、流量控制、数据检错、重发</strong>等。协议有SDLC、HDLC、PPP、STP、帧中断等。</p>
+</li>
+<li><p><strong>网络层</strong>：负责数据包的路由选择和存储转发，并实现<strong>流量控制、拥塞控制、差错控制和网络互联</strong>功能。协议有<strong>IP、IPX</strong>、ICMP、IGMP、ARP、RARP、OSPF等</p>
+</li>
+<li><p><strong>传输层</strong>：端到端的层次（进程到进程），协议有<strong>TCP、UDP</strong>、SCTP等。传输层也会有差错控制和流量控制（端到端）。</p>
+</li>
+<li><p><strong>会话层</strong>：负责主机间建立、管理、终止、恢复进程间的会话</p>
+</li>
+<li><p><strong>表示层</strong>：负责管理数据压缩、加密解密和格式转换等</p>
+</li>
+<li><p><strong>应用层</strong>：提供网络服务接口，协议有<strong>HTTP、FTP</strong>、TELNET、SNMP、RIP等</p>
+</li>
+</ol>
+<h4 id="2-TCP-IP模型"><a href="#2-TCP-IP模型" class="headerlink" title="2. TCP/IP模型"></a>2. TCP/IP模型</h4><ol>
+<li>网络接口层 （osi模型的1, 2）</li>
+<li>网际层</li>
+<li>传输层</li>
+<li>应用层 （osi模型的5, 6, 7）</li>
+</ol>
+<h4 id="3-数据链路层"><a href="#3-数据链路层" class="headerlink" title="3.数据链路层"></a>3.数据链路层</h4><p>差错控制方法：</p>
+<ol>
+<li><p>奇偶校验码</p>
+</li>
+<li><p>循环冗余验证码：商定一个除数（最高最低位为1），循环模2除法运算获取到余数放到最后，比如G(x) = 1101，待传输M=101001, 余数R = 001。发送数据为101001 001</p>
+</li>
+<li><p>海明码： 实质是多重奇偶校验码，只能修正单比特错。</p>
+</li>
+</ol>
+<p>流量控制</p>
+<h4 id="4-网络层"><a href="#4-网络层" class="headerlink" title="4. 网络层"></a>4. 网络层</h4><ol>
+<li><h5 id="IPV4"><a href="#IPV4" class="headerlink" title="IPV4"></a>IPV4</h5><ol>
+<li><p>分组格式<br><img src="/2020/12/20/10%20%E9%9D%A2%E7%BB%8F/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/19345082-05e056a2c3f70af9.png" alt="img" loading="lazy"></p>
+</li>
+<li><p>地址<br><img src="/2020/12/20/10%20%E9%9D%A2%E7%BB%8F/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/825468-20180621115450954-1742075948.png" alt="img" loading="lazy"></p>
+<p>A类（1～126）           127开头为环路自测地址</p>
+<p>B类（128 ～191）</p>
+<p>C类（192～223）</p>
+<p>D类（224～239）</p>
+<p>E（240～255）</p>
+</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li><p>特殊ip</p>
+<ul>
+<li><p>主机号全为 0为网络本身，主机号全为1广播地址</p>
+</li>
+<li><p>0.0.0.0 表示整个TCP/IP网络</p>
+</li>
+<li><p>255.255.255.255表示整个TCP/IP广播地址</p>
+</li>
+<li><p>A类：10.0.0.0 - 10.255.255.255，B类：172.16.0.0 - 172.31.255.255，C类：192.168.0.0 - 192.168.255.255。这些地址被大量用于企业内部网络中。一些宽带路由器，也往往使用192.168.1.1作为缺省地址。私有网络由于不与外部互连，因而可能使用随意的IP地址。保留这样的地址供其使用是为了避免以后接入公网时引起地址混乱。使用私有地址的私有网络在接入Internet时，要使用地址翻译(NAT)，将私有地址翻译成公用合法地址。在Internet上，这类地址是不能出现的。</p>
+</li>
 </ul>
 </li>
-<li><a href="#%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E7%AB%AF%E5%8F%A3">查看网络端口</a><ul>
-<li><a href="#lsof">lsof</a></li>
-<li><a href="#netstat">netstat</a></li>
-</ul>
+<li><h4 id="子网"><a href="#子网" class="headerlink" title="子网"></a>子网</h4><p>划分子网又称为三级IP</p>
 </li>
-<li><a href="#vim%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3">vim操作相关</a><ul>
-<li><a href="#%E7%A7%BB%E5%8A%A8%E5%92%8C%E6%9F%A5%E7%9C%8B">移动和查看</a></li>
-<li><a href="#%E7%BC%96%E8%BE%91">编辑</a></li>
-</ul>
-</li>
-<li><a href="#%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3">进程相关</a></li>
-<li><a href="#%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8">光标移动</a></li>
-</ul>
-<h2 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h2><p>ps -ef 和 ps aux</p>
-<p><img src="/2020/09/25/05%20DevOps/Linux/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/ps%E5%91%BD%E4%BB%A4.png" alt="ps命令" loading="lazy"></p>
-<p>格式有所不同</p>
-<pre><code class="c++"># 标准输出
-# ps -ef
-UID     =&gt; 用户ID、但输出的是用户名 
-PID     =&gt; 进程的ID 
-PPID    =&gt; 父进程ID 
-C       =&gt; 进程占用CPU的百分比 
-STIME   =&gt; 进程启动到现在的时间 
-TTY     =&gt; 该进程在那个终端上运行，若与终端无关，则显示? 若为pts/0等，则表示由网络连接主机进程。 
-CMD     =&gt; 命令的名称和参数
-
-# BSD语法
-# ps aux
-USER       =&gt; 用户名 
-%CPU       =&gt; 进程占用的CPU百分比 
-%MEM       =&gt; 占用内存的百分比 
-VSZ        =&gt; 该进程使用的虚拟內存量（KB） 
-RSS        =&gt; 该进程占用的固定內存量（KB）（驻留中页的数量） 
-STAT       =&gt; 进程的状态 
-START      =&gt; 该进程被触发启动时间 
-TIME       =&gt; 该进程实际使用CPU运行的时间</code></pre>
-<p>树形格式查看</p>
-<p><strong>pstree</strong></p>
-<p><strong>ps</strong> <strong>-ejH</strong></p>
-<p><strong>ps</strong> <strong>axjf</strong></p>
-<h3 id="查看内存使用前十进程"><a href="#查看内存使用前十进程" class="headerlink" title="查看内存使用前十进程"></a>查看内存使用前十进程</h3><pre><code class="shell">ps aux|head -1;ps aux|grep -v PID|sort -rn -k +4|head</code></pre>
-<h3 id="查看cpu使用前10的进程"><a href="#查看cpu使用前10的进程" class="headerlink" title="查看cpu使用前10的进程"></a>查看cpu使用前10的进程</h3><pre><code class="shell">ps aux|head -1;ps aux|grep -v PID|sort -rn -k +3|head</code></pre>
-<h2 id="查看网络端口"><a href="#查看网络端口" class="headerlink" title="查看网络端口"></a>查看网络端口</h2><h3 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h3><p>如查看12888端口使用情况</p>
-<p>lsof -i:12888</p>
-<pre><code class="shell">➜  ~ lsof -i:12888
-COMMAND     PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
-netease-c  4899 tang  196u  IPv4 275504      0t0  TCP localhost:50918-&gt;localhost:12888 (ESTABLISHED)
-v2ray      5968 tang    9u  IPv4  44658      0t0  TCP localhost:12888 (LISTEN)
-v2ray      5968 tang   11u  IPv4 273198      0t0  TCP localhost:12888-&gt;localhost:50922 (ESTABLISHED)
-v2ray      5968 tang   15u  IPv4 273085      0t0  TCP localhost:12888-&gt;localhost:50918 (ESTABLISHED)
-chrome    25770 tang   26u  IPv4 267027      0t0  TCP localhost:50922-&gt;localhost:12888 (ESTABLISHED)</code></pre>
-<h3 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h3><pre><code class="shell">➜  ~ sudo netstat -tunp | grep 12888
-Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name 
-tcp        0      0 127.0.0.1:12888         127.0.0.1:50972         TIME_WAIT   -                   
-tcp        0      0 127.0.0.1:12888         127.0.0.1:50968         TIME_WAIT   -                   
-tcp        0      0 127.0.0.1:50978         127.0.0.1:12888         ESTABLISHED 25770/chrome --type 
-tcp        0      0 127.0.0.1:12888         127.0.0.1:50978         ESTABLISHED 5968/v2ray </code></pre>
-<p>-t 查看tcp</p>
-<p>-u 查看udp</p>
-<p>-n 以数字形式显示地址和端口</p>
-<p>-p 查看pid</p>
-<p>-l 查看listen的</p>
-<h2 id="vim操作相关"><a href="#vim操作相关" class="headerlink" title="vim操作相关"></a>vim操作相关</h2><h3 id="移动和查看"><a href="#移动和查看" class="headerlink" title="移动和查看"></a>移动和查看</h3><p>gg 回到回到第一列</p>
-<p>G 跳到最后一行</p>
-<p>20 + Enter 跳到第二十行</p>
-<p>Ctrl + f  相当与pagedown</p>
-<p>Ctrl + b 相当于pageup</p>
-<p>?word 向上查找word字符串</p>
-<h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><p>yy 复制当前所在列</p>
-<p>2yy 向下复制两行</p>
-<p>u 撤销上个操作</p>
-<p>Ctrl + r 反撤销上个操作</p>
-<p>o 在当前下一列输入</p>
-<h2 id="进程相关"><a href="#进程相关" class="headerlink" title="进程相关"></a>进程相关</h2><p>Ctrl + z 挂起相关进程</p>
-<p>jobs 查看挂起的进程</p>
-<p>fg %n 继续打开第n个进程</p>
-<pre><code class="shell">➜  ~ vim ~/.zshrc                                                                                                   
-[1]  + 30917 suspended  vim ~/.zshrc
-
-➜  ~ jobs   
-[1]  + suspended  vim ~/.zshrc
-
-➜  ~ fg %1
-</code></pre>
-<h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><p>ctr l+ 左右键 : 在单词之间跳转</p>
-<p>ctrl + a : 跳到本行的行首</p>
-<p>ctrl + e : 跳到页尾</p>
-<p>Ctrl + u ：删除当前光标前面的文字 （还有剪切功能）</p>
-<p>ctrl + k ：删除当前光标后面的文字(还有剪切功能)</p>
-<p>Ctrl + L：进行清屏操作</p>
-<p>Ctrl + y : 粘贴Ctrl+u或ctrl+k剪切的内容</p>
+</ol>
 
 </div>
 
@@ -426,13 +377,18 @@ tcp        0      0 127.0.0.1:12888         127.0.0.1:50978         ESTABLISHED 
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2020/11/11/06%20Node/Nodejs%E6%80%BB%E7%BB%93/">
+              <a href="/2020/12/20/05%20DevOps/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
                   <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  
+                  Git
               </a>
             
         </div>
         <div class="item right">
+            
+              <a href="/2020/12/20/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/sql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+                sql常用命令
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
             
         </div>
     </div>
