@@ -8,6 +8,8 @@
 	<!-- title -->
 	
 	<title>
+	
+		manjaro配置 | 
 	 
 	百舸争流
 	</title>
@@ -195,7 +197,7 @@
 									</a>
 									
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2020/12/31/05%20DevOps/Manjaro/manjaro%E9%85%8D%E7%BD%AE/">
 										manjaro配置
 									</a>
@@ -306,262 +308,101 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<div id="index">
+		<h1 id="article-title">
+
+	manjaro配置
+</h1>
+<div class="article-meta">
 	
-		<div class="index-li">
-			<a href="/2020/12/31/05%20DevOps/Manjaro/manjaro%E9%85%8D%E7%BD%AE/">
-				<h2 class="index-title">
-					manjaro配置
-				</h2>
-				<div class="index-brief">
-					安装应用修改自定义目录vim ~/.config/user-dirs.dirs
+	<span>Levi Tang</span>
+	<span>2020-12-31 11:17:15</span>
+    
+		<div id="article-categories">
+            
+		</div>
+    
+</div>
+
+<div id="article-content">
+	<h2 id="安装应用"><a href="#安装应用" class="headerlink" title="安装应用"></a>安装应用</h2><h3 id="修改自定义目录"><a href="#修改自定义目录" class="headerlink" title="修改自定义目录"></a>修改自定义目录</h3><pre><code class="sh">vim ~/.config/user-dirs.dirs
 
 # ~/.config/user-dirs.dirs
 XDG_DESKTOP_DIR=&quot;$HOME/desktop&quot;
-XDG_DOWNLOAD_DIR=&quot;$HOME/downloads&q
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-31</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2020/12/20/07%20Java/Spring%E5%AD%A6%E4%B9%A0/">
-				<h2 class="index-title">
-					Spring学习
-				</h2>
-				<div class="index-brief">
-					Spring学习注释@RestController这个注释是@Controller和@ResponseBody的结合，代表返回的是数据而不是视图
-@RequestMapping使请求映射到controller，有value和method值
+XDG_DOWNLOAD_DIR=&quot;$HOME/downloads&quot;
+XDG_TEMPLATES_DIR=&quot;$HOME/applications&quot;
+XDG_PUBLICSHARE_DIR=&quot;$HOME/public&quot;
+XDG_DOCUMENTS_DIR=&quot;$HOME/documents&quot;
+XDG_MUSIC_DIR=&quot;$HOME/music&quot;
+XDG_PICTURES_DIR=&quot;$HOME/pictures&quot;
+XDG_VIDEOS_DIR=&quot;$HOME/videos&quot;</code></pre>
+<h3 id="QQ"><a href="#QQ" class="headerlink" title="QQ"></a>QQ</h3><pre><code class="sh">yay -S com.qq.im.deepin</code></pre>
+<h3 id="Wechat"><a href="#Wechat" class="headerlink" title="Wechat"></a>Wechat</h3><pre><code class="sh">yay -S com.qq.weixin.spark</code></pre>
+<p>没有截图和透明边框问题，但是输入中文显示成了小方块，要安装微软雅黑字体</p>
+<h3 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h3><p>把字体复制到/usr/share/fonts, 然后运行<code>fc-cache --force</code>刷新缓存<br>， <code>yay -S freetype2-ultimate5</code>安装一个字体的插件，可以更清晰</p>
+<h3 id="安装Postman"><a href="#安装Postman" class="headerlink" title="安装Postman"></a>安装Postman</h3><p>官网直接下载压缩包，放到～/Applications中，运行<code>sudo ln -s ~/applications/Postman/Postman /usr/bin/postman</code> 建立软链接，就可以直接命令postman启动  </p>
+<p>创建桌面图标</p>
+<pre><code class="sh"># 全局配置
+vim /usr/share/applications/Postman.desktop
 
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-20</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2020/12/20/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/">
-				<h2 class="index-title">
-					隔离级别
-				</h2>
-				<div class="index-brief">
-					Mysql和Postgres事务隔离级别隔离级别概念未提交读（READ UNCOMMITTED）事务没有提交，别的事务也可以读到修改（脏读）。
-提交读（READ COMMITTED）除了mysql的大多关系数据库的默认级别都是提交读（pg, oracle等），a事务可以看到b事务的提交修改，所以a事
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-20</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2020/12/20/07%20Java/jdk%E5%AE%89%E8%A3%85%E5%92%8C%E5%A4%9A%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">
-				<h2 class="index-title">
-					jdk安装和多版本管理
-				</h2>
-				<div class="index-brief">
-					jdk安装和多版本管理arch或manjaro注意Manjaro系统只能安装openjdk
-安装oraclejdk使用时报错，Unrecognized option: –version Error: Could not create the Java Virtual Mach
-wiki文档地址：ht
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-20</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2020/12/20/05%20DevOps/IDEA/IDEA%E6%93%8D%E4%BD%9C/">
-				<h2 class="index-title">
-					IDEA操作
-				</h2>
-				<div class="index-brief">
-					快捷键ctrl+shift+alt：多行操作psvm：生成main()方法；fori：生成for循环；Ctrl+Alt+v：自动补齐返回值类型ctrl+o：覆写方法ctrl+i：实现接口中的方法ctrl+shift+u：大小写转换CTRL+SHIFT+Z：取消撤销Alt＋Insert：生成构造方法、
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-20</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2020/12/20/05%20DevOps/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-				<h2 class="index-title">
-					Git常用命令
-				</h2>
-				<div class="index-brief">
-					Git使用中国镜像下载git clone https://git.sdut.me
-git pull时总是要输入帐号密码git config --global credential.helper store
-remote—远程仓库管理
-显示远程仓库的URL
+# 个人配置
+vim ~/.local/share/applications/Postman.desktop
 
-git remote -v
+# Postman.desktop
 
-添加远程, 
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-20</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2020/12/20/10%20%E9%9D%A2%E7%BB%8F/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/">
-				<h2 class="index-title">
-					面试笔记
-				</h2>
-				<div class="index-brief">
-					面试笔记其他1.一个汉字是多少个字节？
+[Desktop Entry]
+Type=Application
+Comment=postman
+Name=Postman
+Icon=/home/levi/applications/Postman/app/resources/app/assets/icon.png
+Exec=/home/levi/applications/Postman/Postman
+Terminal=false
+Categories=Application;</code></pre>
+<p>有了桌面图标就可以添加到latte-dock</p>
+<h3 id="安装AppImageLauncher"><a href="#安装AppImageLauncher" class="headerlink" title="安装AppImageLauncher"></a>安装AppImageLauncher</h3><p>设置AppImage的目录为~/applications就能读取到应用，然后再添加到dock</p>
+<h3 id="设置vim"><a href="#设置vim" class="headerlink" title="设置vim"></a>设置vim</h3><p>在/etc/vimrc设置使用系统剪切板</p>
+<pre><code class="shell">set clipboard=unnamed,unnamedplus</code></pre>
+<p>unamed为可用选区的剪切板<br>unamedplus为可用普通的剪切板（只有linux需要设置）</p>
 
-一个汉字占2B, 1字节（B）等于8 bit, 所以一个汉字占16个二进制
-
-k8s计算机网络1. ISO/OSI (开放系统互联) 七层模型
-物理层
-
-数据链路层： 在不可靠的物理介质上提供可靠的物理传输（光纤可能会被挖断..）。作用有物理地址寻址、数据封
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-20</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2020/12/20/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/sql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-				<h2 class="index-title">
-					sql常用命令
-				</h2>
-				<div class="index-brief">
-					常用sql命令psql设置id从表最大id开始自动增长select setval(&#39;tablename_id_seq&#39;,(select max(id) from tablename))
-数据备份与回复数据备份
-pg_dump -v -U postgres -h 127.0.0.1 -
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-20</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2020/12/20/05%20DevOps/Vim/Vim%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
-				<h2 class="index-title">
-					Vim常用操作
-				</h2>
-				<div class="index-brief">
-					vim操作相关移动和查看h 左
-l 右
-k 上
-j 下
-w/W 跳过一个单词
-b/B 返回一个单词
-} 跳过一个段落
-{ 返回一个段落
-]] 相当于G
-[[ 相当于gg
-gk 在一个很长的段落中移动这个光标到上面
-gj 在一个很长的段落中移动这个光标到下面
-0 返回这行的句首
-$ 返回这行的句尾
-g
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-12-20</span>
-                    
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2020/11/11/06%20Node/Nodejs%E6%80%BB%E7%BB%93/">
-				<h2 class="index-title">
-					Nodejs总结
-				</h2>
-				<div class="index-brief">
-					目录
-目录
-深浅拷贝
-概念
-解决方案
-
-
-理解模块化加载
-require
-module.exports和exports
-import
-export和export default
-
-
-
-深浅拷贝概念参考
-b=a时
-浅拷贝，修改b，同时会修改a。
-深拷贝，修改b不会修改到a。
-基础数据类型不存在浅拷贝，
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2020-11-11</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/Node/">Node</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-	
-	<div id="index-paginator">
-		
-			<span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&gt;</a>
-		
-	</div>
 </div>
 
+
+    <div class="post-guide">
+        <div class="item left">
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2020/12/20/07%20Java/Spring%E5%AD%A6%E4%B9%A0/">
+                
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			av: AV,
+			el: '#vcomments',
+			notify: false,
+			verify: false,
+			path: window.location.pathname,
+			appId: 'fz5jMD8XWbMNUjFVI2spXPLb-gzGzoHsz',
+			appKey: '0ReU6ck9izHByJPT5SipEAKe',
+			placeholder: '请输入评论',
+			avatar: 'retro',
+			recordIP: false
+		})
+	
+	
+</script>
 	</div>
 	<div id="footer">
 	<p>

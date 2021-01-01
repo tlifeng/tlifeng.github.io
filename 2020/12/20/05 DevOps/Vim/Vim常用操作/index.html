@@ -193,6 +193,26 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
+										Manjaro
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/12/31/05%20DevOps/Manjaro/manjaro%E9%85%8D%E7%BD%AE/">
+										manjaro配置
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
 										Vim
 									</a>
 									
@@ -304,7 +324,21 @@
 </div>
 
 <div id="article-content">
-	<h2 id="vim操作相关"><a href="#vim操作相关" class="headerlink" title="vim操作相关"></a>vim操作相关</h2><h3 id="移动和查看"><a href="#移动和查看" class="headerlink" title="移动和查看"></a>移动和查看</h3><p>gg 回到回到第一列</p>
+	<h2 id="vim操作相关"><a href="#vim操作相关" class="headerlink" title="vim操作相关"></a>vim操作相关</h2><h3 id="移动和查看"><a href="#移动和查看" class="headerlink" title="移动和查看"></a>移动和查看</h3><p>h 左</p>
+<p>l 右</p>
+<p>k 上</p>
+<p>j 下</p>
+<p>w/W 跳过一个单词</p>
+<p>b/B 返回一个单词</p>
+<p>} 跳过一个段落</p>
+<p>{ 返回一个段落</p>
+<p>]] 相当于G</p>
+<p>[[ 相当于gg</p>
+<p>gk 在一个很长的段落中移动这个光标到上面</p>
+<p>gj 在一个很长的段落中移动这个光标到下面</p>
+<p>0 返回这行的句首</p>
+<p>$ 返回这行的句尾</p>
+<p>gg 回到回到第一列</p>
 <p>G 跳到最后一行</p>
 <p>20 + Enter 跳到第二十行</p>
 <p>Ctrl + f  相当与pagedown</p>
@@ -317,6 +351,7 @@
 <p>o 在当前下一列输入</p>
 <h3 id="复制剪切板的内容"><a href="#复制剪切板的内容" class="headerlink" title="复制剪切板的内容"></a>复制剪切板的内容</h3><p>配置vimrc, 一般全局的配置在/etc/vimrc文件，个人配置在~/.vimrc。</p>
 <pre><code class="shell">set clipboard=unnamed,unnamedplus</code></pre>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/3961859/how-to-copy-to-clipboard-in-vim#comment65603699_10979533">参考链接</a></p>
 <h3 id="编辑时使用root权限保存"><a href="#编辑时使用root权限保存" class="headerlink" title="编辑时使用root权限保存"></a>编辑时使用root权限保存</h3><p>在命令模式下，输入</p>
 <pre><code class="shell">:w !sudo tee %</code></pre>
 <h2 id="进程相关"><a href="#进程相关" class="headerlink" title="进程相关"></a>进程相关</h2><p>Ctrl + z 挂起相关进程</p>
@@ -330,13 +365,6 @@
 
 ➜  ~ fg %1
 </code></pre>
-<h2 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h2><p>ctr l+ 左右键 : 在单词之间跳转</p>
-<p>ctrl + a : 跳到本行的行首</p>
-<p>ctrl + e : 跳到页尾</p>
-<p>Ctrl + u ：删除当前光标前面的文字 （还有剪切功能）</p>
-<p>ctrl + k ：删除当前光标后面的文字(还有剪切功能)</p>
-<p>Ctrl + L：进行清屏操作</p>
-<p>Ctrl + y : 粘贴Ctrl+u或ctrl+k剪切的内容</p>
 
 </div>
 
@@ -391,7 +419,7 @@
 	
 	
 	<br>
-	Theme <a href="//github.com/wujun234/hexo-theme-tree" target="_blank">Tree</a>
+	Theme <a href="//github.com/wujun234/hexo-thehexme-tree" target="_blank">Tree</a>
 	by <a href="//github.com/wujun234" target="_blank">WuJun</a>
 	Powered by <a href="//hexo.io" target="_blank">Hexo</a>
 	</p>
