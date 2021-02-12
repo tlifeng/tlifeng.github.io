@@ -375,6 +375,22 @@ pastefinish() &#123;
 &#125;
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish</code></pre>
+<h2 id="终端代理"><a href="#终端代理" class="headerlink" title="终端代理"></a>终端代理</h2><p>安装polipo</p>
+<pre><code class="shell">yay -S polipo</code></pre>
+<p>配置polipo</p>
+<pre><code class="shell">cp /etc/polipo/config.sample /etc/polipo/config
+
+sudo vim /etc/polipo/config
+
+// config
+socksParentProxy = &quot;localhost:1080&quot;
+socksProxyType = socks5
+
+sudo systemctl restart polipo.service
+
+// polipo默认端口是8123
+export http_proxy=http://localhost:8123</code></pre>
+<p>通过<code>curl ip.sb</code>查看ip是否改变</p>
 
 </div>
 
