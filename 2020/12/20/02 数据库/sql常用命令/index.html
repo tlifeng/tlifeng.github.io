@@ -344,7 +344,7 @@
 </div>
 
 <div id="article-content">
-	<h1 id="常用sql命令"><a href="#常用sql命令" class="headerlink" title="常用sql命令"></a>常用sql命令</h1><h2 id="psql"><a href="#psql" class="headerlink" title="psql"></a>psql</h2><h3 id="设置id从表最大id开始自动增长"><a href="#设置id从表最大id开始自动增长" class="headerlink" title="设置id从表最大id开始自动增长"></a>设置id从表最大id开始自动增长</h3><pre><code class="sql">select setval(&#39;tablename_id_seq&#39;,(select max(id) from tablename))</code></pre>
+	<h1 id="常用sql命令"><a href="#常用sql命令" class="headerlink" title="常用sql命令"></a>常用sql命令</h1><h2 id="postgres"><a href="#postgres" class="headerlink" title="postgres"></a>postgres</h2><h3 id="设置id从表最大id开始自动增长"><a href="#设置id从表最大id开始自动增长" class="headerlink" title="设置id从表最大id开始自动增长"></a>设置id从表最大id开始自动增长</h3><pre><code class="sql">select setval(&#39;tablename_id_seq&#39;,(select max(id) from tablename))</code></pre>
 <h3 id="数据备份与回复"><a href="#数据备份与回复" class="headerlink" title="数据备份与回复"></a>数据备份与回复</h3><p><strong>数据备份</strong></p>
 <pre><code class="sql">pg_dump -v -U postgres -h 127.0.0.1 -p 5432 database &gt; database.sql</code></pre>
 <p>-v 详细输出</p>
@@ -354,6 +354,11 @@
 <p>database 数据库名</p>
 <p><strong>恢复数据</strong></p>
 <pre><code>psql -h localhost -U postgres -d databasename &lt;  database.sql</code></pre>
+<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><h3 id="数据备份和恢复"><a href="#数据备份和恢复" class="headerlink" title="数据备份和恢复"></a>数据备份和恢复</h3><p>备份</p>
+<pre><code class="sql">docker exec -it af10fce234a3 mysqldump -uroot -h192.168.0.50 -p123456 --databases tablename1 tablename2 &gt; tablename.sql</code></pre>
+<p>备份出来的sql文件第一行会有提示语句，直接导入会报语法错误，要先删掉提示语<br>-all-databases 备份所有数据库  </p>
+<p>恢复</p>
+<pre><code class="sql">docker exec -i af10fce234a3 mysql -h127.0.0.1 -uroot -p123456 &lt; skyland_jlfdl_admin.sql</code></pre>
 
 </div>
 
