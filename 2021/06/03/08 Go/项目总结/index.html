@@ -102,6 +102,15 @@
 									
 							<ul>
 								<li class="file">
+									<a href="/2021/07/21/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/oracle/">
+										oracle
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/2020/12/20/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/sql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 										sql常用命令
 									</a>
@@ -393,6 +402,9 @@ if sqlparVal != nil &amp;&amp; (reflect.TypeOf(sqlparVal).Kind() == reflect.Slic
 &#125;</code></pre>
 <p>添加元素</p>
 <pre><code class="go">arr = append(arr, val)</code></pre>
+<p>字符串数组</p>
+<pre><code class="go">sort.Strings(arr[:]) //从小到大
+sort.Sort(sort.Reverse(sort.StringSlice(arr[:]))) //从大到小</code></pre>
 <h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><p>初始化一个any类型的map</p>
 <pre><code class="go">content := make(map[string]interface&#123;&#125;) // 全局var定义后要make才能使用</code></pre>
 <p>并发要加锁</p>
@@ -525,6 +537,11 @@ rm -rvf main.exe</code></pre>
 
     <div class="post-guide">
         <div class="item left">
+            
+              <a href="/2021/07/21/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/oracle/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  oracle
+              </a>
             
         </div>
         <div class="item right">

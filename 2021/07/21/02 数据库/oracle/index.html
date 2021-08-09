@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		jdk安装和多版本管理 | 
+		oracle | 
 	 
 	百舸争流
 	</title>
@@ -101,7 +101,7 @@
 									</a>
 									
 							<ul>
-								<li class="file">
+								<li class="file active">
 									<a href="/2021/07/21/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/oracle/">
 										oracle
 									</a>
@@ -279,7 +279,7 @@
 							</ul>
 			
 							<ul>
-								<li class="file active">
+								<li class="file">
 									<a href="/2020/12/20/07%20Java/jdk%E5%AE%89%E8%A3%85%E5%92%8C%E5%A4%9A%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">
 										jdk安装和多版本管理
 									</a>
@@ -339,12 +339,12 @@
 	<div id="content">
 		<h1 id="article-title">
 
-	jdk安装和多版本管理
+	oracle
 </h1>
 <div class="article-meta">
 	
 	<span>Levi Tang</span>
-	<span>2020-12-20 13:21:10</span>
+	<span>2021-07-21 09:30:35</span>
     
 		<div id="article-categories">
             
@@ -353,62 +353,78 @@
 </div>
 
 <div id="article-content">
-	<h1 id="jdk安装和多版本管理"><a href="#jdk安装和多版本管理" class="headerlink" title="jdk安装和多版本管理"></a>jdk安装和多版本管理</h1><h2 id="arch或manjaro"><a href="#arch或manjaro" class="headerlink" title="arch或manjaro"></a>arch或manjaro</h2><p><strong>注意Manjaro系统只能安装openjdk</strong></p>
-<p>安装oraclejdk使用时报错，Unrecognized option: –version Error: Could not create the Java Virtual Mach</p>
-<p>wiki文档地址：<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Java">https://wiki.archlinux.org/index.php/Java</a></p>
-<p>pacman安装</p>
-<pre><code class="shell">sudo pacman -S jdk8-openjdk</code></pre>
-<p>安装后，jdk所在目录/usr/lib/jvm/java-8-openjdk</p>
-<p>manjaro/archlinux本身有一个管理jdk的命令</p>
-<pre><code class="shell">archlinux-java &lt;COMMAND&gt;
+	<h1 id="oracle命令"><a href="#oracle命令" class="headerlink" title="oracle命令"></a>oracle命令</h1><h2 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h2><pre><code class="linux"># 拉取项目
+docker pull registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g
+# 启动项目
+docker run  --privileged --name oracle11g -p 1521:1521  registry.cn-hangzhou.aliyuncs.com/helowin/oracle_11g
+# 进入项目
+docker exec -it oracle11g /bin/bash
 
-COMMAND:
-    status        List installed Java environments and enabled one
-    get            Return the short name of the Java environment set as default
-    set         &lt;JAVA_ENV&gt;    Force &lt;JAVA_ENV&gt; as default
-    unset        Unset current default Java environment
-    fix            Fix an invalid/broken default Java environment configuration</code></pre>
-<h2 id="其他linux系统"><a href="#其他linux系统" class="headerlink" title="其他linux系统"></a>其他linux系统</h2><p>下载openjdk地址  <a target="_blank" rel="noopener" href="http://openjdk.java.net/install/">http://openjdk.java.net/install/</a></p>
-<p>下载oraclejdk地址 <a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase-downloads.html">https://www.oracle.com/java/technologies/javase-downloads.html</a></p>
-<p>下载后解压缩</p>
-<pre><code class="shell">tar -xzv -f ./jdk-8u261-linux-x64.tar.gz -C /usr/lib/jvm/jdk_8</code></pre>
-<p>-x 解压文件</p>
-<p>-z 解压gzip压缩的文件，即.tar.gz结尾</p>
-<p>-v 显示解压过程</p>
-<p>-f 要处理的压缩包名称</p>
-<p>-C 要解压的目录</p>
-<p>安装jenv版本工具</p>
-<pre><code class="shell"># 下载jenv源文件
-git clone https://github.com/jenv/jenv.git ~/.jenv
+# 切换到root用户,密码为helowin
+su - root
+vi /etc/profile</code></pre>
+<p>输入环境变量到全局</p>
+<pre><code class="linux">export ORACLE_HOME=/home/oracle/app/oracle/product/11.2.0/dbhome_2
+export ORACLE_SID=helowin
+export PATH=$ORACLE_HOME/bin:$PATH</code></pre>
+<pre><code class="linux"># 生效更改的环境变量
+source /etc/profile
+# 创建软链接
+ln -s $ORACLE_HOME/bin/sqlplus /usr/bin
+# 创建一个data文件
+mkdir /data
+chmod -R 777 /data
+# 切换到oracle用户
+su - oracle
 
-# 安装
-# bash
-echo &#39;export PATH=&quot;$HOME/.jenv/bin:$PATH&quot;&#39; &gt;&gt; ~/.bash_profile
-echo &#39;eval &quot;$(jenv init -)&quot;&#39; &gt;&gt; ~/.bash_profile
-source ~/.zshrc
+# 使用sysdba登陆
+sqlplus / as sysdba
+# 无效的话，先登陆再切换用户
+sqlplus /nolog
+SQL&gt; conn /as sysdba</code></pre>
+<pre><code class="sql">-- 修改帐号密码
+alter user system identified by 123456;
+alter user sys identified by 123456;
+ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
 
-# zsh
-echo &#39;export PATH=&quot;$HOME/.jenv/bin:$PATH&quot;&#39; &gt;&gt; ~/.zshrc
-echo &#39;eval &quot;$(jenv init -)&quot;&#39; &gt;&gt; ~/.zshrc
-source ~/.zshrc
+create user test identified by 123456 default tablespace TEST;
+create tablespace TEST datafile &#39;/data/TEST.dbf&#39; size 200m autoextend on next 100m maxsize unlimited;
+grant connect,resource,dba to test;
+-- 创建表空间
+create tablespace ROOT datafile &#39;/data/ROOT.dbf&#39; size 200m autoextend on next 100m maxsize unlimited;
+-- 创建用户
+create user root identified by 123456 default tablespace ROOT;
+-- 设置用户权限
+grant connect,resource,dba to root;
+commit;</code></pre>
+<p>oracle的sql查询和插入会自动转换为大写, 严格匹配要加””号， ‘’号一般表示字符串, “”一般加在表名和列名</p>
+<h2 id="分页写法"><a href="#分页写法" class="headerlink" title="分页写法"></a>分页写法</h2><p>第一个%s表示要查询的字段, 第二个%s为原本的查询语句, 第三个%s表示order by的限制</p>
+<pre><code class="sql">SELECT %s FROM (SELECT e.*, ROWNUM rn FROM (%s) e) WHERE ROWNUM &lt;= 10 AND rn &gt; 1 %s</code></pre>
+<h2 id="插入多行数据"><a href="#插入多行数据" class="headerlink" title="插入多行数据"></a>插入多行数据</h2><pre><code class="sql">INSERT ALL
+  INTO mytable (column1, column2, column_n) VALUES (expr1, expr2, expr_n)
+  INTO mytable (column1, column2, column_n) VALUES (expr1, expr2, expr_n)
+  INTO mytable (column1, column2, column_n) VALUES (expr1, expr2, expr_n)
+SELECT * FROM dual;</code></pre>
+<pre><code class="id自增">--创建序列
+CREATE SEQUENCE sys_log    
+    INCREMENT BY 1 -- 每次加几个  
+    START WITH 1 -- 迁移过来的，已经有记录了  
+    MINVALUE 1      --最小值1  
+    NOMAXVALUE -- 不设置最大值   
+    NOCYCLE -- 一直累加，不循环  
+    NOCACHE -- 不建缓冲区  
 
-# jenv 使用
-# jenv添加刚才安装的jdk,后面为jdk安装的目录
-jenv add /usr/lib/jvm/jdk_8
-# jenv查看所有管理的版本
-jenv versions
-# jenv查看当前使用版本
-jenv version
-# jenv全局设置某个版本
-jenv global 1.8
-# jev当前目录设置某个版本
-jenv local 1.8
-# jenv 设置shell使用的版本
-jenv shell 1.8
-# 查看jenv的更多命令
-jenv commands
-# 查看命令帮助
-jenv help &lt;command&gt;</code></pre>
+
+CREATE  TRIGGER sys_log_tri    
+         BEFORE  
+         INSERT ON FX_SYSLOG  
+         FOR EACH ROW  
+         BEGIN  
+         SELECT sys_log.nextval into :new.id  from dual;  
+     END sys_log_tri; 
+
+DROP  SEQUENCE sys_log;
+DROP  TRIGGER sys_log_tri;</code></pre>
 
 </div>
 
@@ -416,16 +432,11 @@ jenv help &lt;command&gt;</code></pre>
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2020/12/20/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/">
-                  <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  隔离级别
-              </a>
-            
         </div>
         <div class="item right">
             
-              <a href="/2020/12/20/05%20DevOps/IDEA/IDEA%E6%93%8D%E4%BD%9C/">
-                IDEA
+              <a href="/2021/06/03/08%20Go/%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/">
+                项目总结
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
