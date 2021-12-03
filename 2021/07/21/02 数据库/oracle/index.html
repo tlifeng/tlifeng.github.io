@@ -425,6 +425,30 @@ CREATE  TRIGGER sys_log_tri
 
 DROP  SEQUENCE sys_log;
 DROP  TRIGGER sys_log_tri;</code></pre>
+<h2 id="修改编码"><a href="#修改编码" class="headerlink" title="修改编码"></a>修改编码</h2><p>查看原编码</p>
+<pre><code class="sql">select * from nls_database_parameters where parameter =&#39;NLS_CHARACTERSET&#39;;</code></pre>
+<pre><code class="修改编码">$sqlplus /nolog
+sql&gt;conn /as sysdba;
+sql&gt;shutdown immediate;
+
+mount数据库
+sql&gt;startup mount;
+
+设置session
+SQL&gt;ALTER SYSTEM ENABLE RESTRICTED SESSION;
+SQL&gt;ALTER SYSTEM SET JOB_QUEUE_PROCESSES=0;
+SQL&gt;ALTER SYSTEM SET AQ_TM_PROCESSES=0;
+
+启动数据库
+SQL&gt;alter database open;
+
+修改字符集
+SQL&gt;ALTER DATABASE character set INTERNAL_USE AL32UTF8;
+
+关闭，重新启动
+SQL&gt;shutdown immediate;
+SQL&gt;startup;</code></pre>
+<p><a target="_blank" rel="noopener" href="https://my.oschina.net/u/2345654/blog/1930722">参考</a></p>
 
 </div>
 
