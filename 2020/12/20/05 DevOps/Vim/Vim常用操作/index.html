@@ -58,7 +58,7 @@
 
 	
 	
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
 	<header id="header">
@@ -353,31 +353,40 @@
 </div>
 
 <div id="article-content">
-	<h2 id="vim操作相关"><a href="#vim操作相关" class="headerlink" title="vim操作相关"></a>vim操作相关</h2><h3 id="移动和查看"><a href="#移动和查看" class="headerlink" title="移动和查看"></a>移动和查看</h3><p>h 左</p>
-<p>l 右</p>
-<p>k 上</p>
-<p>j 下</p>
-<p>w/W 跳过一个单词</p>
-<p>b/B 返回一个单词</p>
-<p>} 跳过一个段落</p>
-<p>{ 返回一个段落</p>
-<p>]] 相当于G</p>
-<p>[[ 相当于gg</p>
-<p>gk 在一个很长的段落中移动这个光标到上面</p>
-<p>gj 在一个很长的段落中移动这个光标到下面</p>
-<p>0 返回这行的句首</p>
-<p>$ 返回这行的句尾</p>
-<p>gg 回到回到第一列</p>
-<p>G 跳到最后一行</p>
-<p>20 + Enter 跳到第二十行</p>
-<p>Ctrl + f  相当与pagedown</p>
-<p>Ctrl + b 相当于pageup</p>
-<p>?word 向上查找word字符串</p>
-<h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><p>yy 复制当前所在列</p>
-<p>2yy 向下复制两行</p>
-<p>u 撤销上个操作</p>
-<p>Ctrl + r 反撤销上个操作</p>
-<p>o 在当前下一列输入</p>
+	<h2 id="vim操作相关"><a href="#vim操作相关" class="headerlink" title="vim操作相关"></a>vim操作相关</h2><h3 id="移动和查看"><a href="#移动和查看" class="headerlink" title="移动和查看"></a>移动和查看</h3><p><code>0</code>： 返回这行的句首</p>
+<p><code>$</code>： 返回这行的句尾</p>
+<p><code>gg</code>： 回到回到第一列</p>
+<p><code>G</code>： 跳到最后一行</p>
+<p><code>20 + Enter</code>： 跳到第二十行</p>
+<p><code>Ctrl + f</code>：  相当与pagedown</p>
+<p><code>Ctrl + b</code>： 相当于pageup</p>
+<p><code>?word</code>： 向上查找word字符串</p>
+<p><code>h</code>： 左</p>
+<p><code>l</code>： 右</p>
+<p><code>k</code>： 上</p>
+<p><code>j</code>： 下</p>
+<p><code>w/W</code>： 跳过一个单词</p>
+<p><code>b/B</code>： 返回一个单词</p>
+<p><code>&#125;</code>： 跳过一个段落</p>
+<p><code>&#123;</code>： 返回一个段落</p>
+<p><code>]]</code>： 相当于G</p>
+<p><code>[[</code>： 相当于gg</p>
+<p><code>gk</code>： 在一个很长的段落中移动这个光标到上面</p>
+<p><code>gj</code>： 在一个很长的段落中移动这个光标到下面</p>
+<h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><ol>
+<li><p><code>.</code>： 重复之前的操作</p>
+</li>
+<li><p><code>yy</code>： 复制当前所在列</p>
+</li>
+<li><p><code>2yy</code>： 向下复制两行</p>
+</li>
+<li><p><code>u</code>： 撤销上个操作</p>
+</li>
+<li><p><code>Ctrl + r</code>： 反撤销上个操作</p>
+</li>
+<li><p><code>o</code>： 在当前下一列输入</p>
+</li>
+</ol>
 <h3 id="复制剪切板的内容"><a href="#复制剪切板的内容" class="headerlink" title="复制剪切板的内容"></a>复制剪切板的内容</h3><p>配置vimrc, 一般全局的配置在/etc/vimrc文件，个人配置在~/.vimrc。</p>
 <pre><code class="shell">set clipboard=unnamed,unnamedplus</code></pre>
 <p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/3961859/how-to-copy-to-clipboard-in-vim#comment65603699_10979533">参考链接</a></p>
